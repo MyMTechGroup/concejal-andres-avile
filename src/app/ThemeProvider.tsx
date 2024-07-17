@@ -23,7 +23,7 @@ const theme = createTheme({
       primary: '#000000', // Establecer el color de la fuente principal a blanco
     },
     background: {
-      default: '#000000', // Opcional: Establecer el fondo por defecto a negro para contraste
+      default: 'transparent', // Opcional: Establecer el fondo por defecto a negro para contraste
     },
   },
   typography: {
