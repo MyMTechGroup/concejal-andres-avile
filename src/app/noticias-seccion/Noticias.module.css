@@ -1,0 +1,10 @@
+.newsPage {
+  background-color: aqua;
+  padding: 20px;
+}
+
+.pageTitle {
+  color: black;
+  text-align: center;
+  margin-bottom: 40px;
+}

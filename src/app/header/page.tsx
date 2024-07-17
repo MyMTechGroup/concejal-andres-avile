@@ -48,7 +48,7 @@ function Header() {
               width={500}
               height={800}
               alt="concejal"
-              style={{ maxWidth: "100%", height: "auto", marginBottom: 0 }}
+              style={{ maxWidth: "100%", height: "auto", marginBottom: 0}}
             />
           </Grid>
         </Grid>
