@@ -1,12 +1,19 @@
 // src/layouts/RootLayout.tsx
 
 import { Inter } from "next/font/google";
-import Head from "next/head";
+// import Head from "next/head";
 import ThemeProvider from "./ThemeProvider";
 import "./globals.css";
 
 // Importa la fuente Inter
 const inter = Inter({ subsets: ["latin"] });
+
+
+// Definir los metadatos usando la Metadata API
+export const metadata = {
+  title: 'Concejal Andres Pata Avila',
+  description: 'Últimas noticias y actualidades de Villa Constitución',
+};
 
 // Componente funcional del layout principal
 const RootLayout = ({
@@ -16,17 +23,6 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="es">
-      <Head>
-        {/* Establece los metadatos en el head */}
-        <title>Centro Medico Jujuy</title>
-        <meta
-          name="description"
-          content="Web app del centro médico de Jujuy"
-        />
-        {/* Incluye la fuente Inter */}
-        <style>{inter.css}</style>
-        {/* Otros metadatos que puedas necesitar */}
-      </Head>
       <body className={inter.className}>
         {/* Proveedor de tema para aplicar estilos */}
         <ThemeProvider>{children}</ThemeProvider>
