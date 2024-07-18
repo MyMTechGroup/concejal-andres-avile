@@ -9,6 +9,7 @@ import NewsPage from "./noticias-seccion/page";
 import { Box, Fab, Tooltip } from "@mui/material";
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import Footer from "./componentes/footer/footer";
 
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
           </Fab>
         </Tooltip>
       </Box>
+      <Footer />
     </main>
   );
 }

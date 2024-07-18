@@ -4,7 +4,7 @@ import { TextField, Button, Grid, Box } from "@mui/material";
 const ContactForm: React.FC = () => {
   return (
     <Box component="form" noValidate autoComplete="off" color='#487ca0'>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
             fullWidth
@@ -47,7 +47,7 @@ const ContactForm: React.FC = () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" fullWidth>
+          <Button variant="contained" color="primary">
             Enviar
           </Button>
         </Grid>

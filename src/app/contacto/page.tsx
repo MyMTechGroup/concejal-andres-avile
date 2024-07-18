@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Typography, Grid, Container } from "@mui/material";
-import Image from "next/image";
 import ContactForm from "../componentes/form/contactForm";
 
 const Contacto: React.FC = () => {
@@ -9,27 +8,26 @@ const Contacto: React.FC = () => {
       style={{
         position: "relative",
         color: "#fff",
-        height: "100vh",
-        textShadow: "2px 2px 4px rgba(0,0,0,0.6)",
         backgroundColor: `grey`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         width: "100%",
-        paddingTop: "128px", // Para compensar la altura del TopBar y NavBar
+        paddingTop: "128px", // Ajuste para el espacio superior
+        paddingBottom: "80px" // Ajuste para el espacio inferior
       }}
     >
-      <Container maxWidth="lg" style={{}}>
+      <Container maxWidth="lg" style={{ marginBottom: "10px" }}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <Typography
               variant="h4"
               component="h3"
-              sx={{ fontWeight: "bold"}}
+              sx={{ fontWeight: "bold" }}
               color='black'
             >
               CONTACTAME
             </Typography>
-            <Typography color='#487ca0' variant="body1" component="p">
+            <Typography color='white' variant="body1" component="p">
               Hoy tengo la responsabilidad de representar a los villenses y lo
               hago con mucho gusto y compromiso.<br/> Quiero realizar mis aportes
               para resolver los problemas que tenemos y tratar de lograr una
