@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Box, Typography, Paper, Avatar, Container } from "@mui/material";
-import Link from "next/link";
+import Link from "@mui/material/Link";
 
 const newsData = [
   {
@@ -50,7 +50,7 @@ const NewsPage: React.FC = () => {
         <Grid container spacing={2}>
           {newsData.map((newsItem) => (
             <Grid item xs={12} md={4} key={newsItem.id}>
-              <Link href={`/noticias-seccion/${newsItem.id}`}>
+              <Link href={`/noticias-seccion/${newsItem.id}`} underline="none">
                 <Paper
                   sx={{
                     display: "flex",

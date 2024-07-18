@@ -5,7 +5,7 @@ import Image from "next/image";
 function Header() {
   return (
     <Box
-      style={{
+      sx={{
         position: "relative",
         color: "#fff",
         height: "100vh",
@@ -13,6 +13,7 @@ function Header() {
         backgroundImage: `url(/header-img/ciudad-vc.jpeg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
+        overflow:"hidden",
         width: "100%",
         paddingTop: "128px", // Para compensar la altura del TopBar y NavBar
       }}
@@ -34,7 +35,8 @@ function Header() {
                 fontSize: { xs: "2rem", md: "3rem" },
               }}
             >
-              "Unidos por un futuro con valores de familia y vida"
+              {" "}
+              Unidos por un futuro con valores de familia y vida
             </Typography>
           </Grid>
           <Grid
@@ -48,7 +50,7 @@ function Header() {
               width={500}
               height={800}
               alt="concejal"
-              style={{ maxWidth: "100%", height: "auto", marginBottom: 0}}
+              style={{ maxWidth: "100%", height: "auto", marginBottom: 0 }}
             />
           </Grid>
         </Grid>
