@@ -18,7 +18,7 @@ function Header() {
         paddingTop: "128px", // Para compensar la altura del TopBar y NavBar
       }}
     >
-      <Container maxWidth="lg" style={{ height: "100%" }}>
+      <Container maxWidth="xl" style={{ height: "100%" }}>
         <Grid
           container
           spacing={2}

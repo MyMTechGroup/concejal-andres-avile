@@ -19,7 +19,7 @@ function TopBar() {
       position="fixed" 
       style={{ backgroundColor: '#0d47a1', top: 0, left: 0, right: 0 }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Toolbar 
           sx={{ 
             flexDirection: isMobile ? 'column' : 'row', 

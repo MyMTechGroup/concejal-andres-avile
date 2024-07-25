@@ -36,7 +36,7 @@ function NavBar() {
           zIndex: 1201  // Asegúra de que el NavBar esté encima del contenido
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Toolbar style={{ minHeight: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="h6" style={{ color: '#fff' }}>
               ANDRES PATA AVILE
