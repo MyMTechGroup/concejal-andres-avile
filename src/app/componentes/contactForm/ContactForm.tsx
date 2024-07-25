@@ -1,4 +1,5 @@
 // components/form/ContactForm.tsx
+"use client";
 import React, { useState } from 'react';
 import { Button, TextField, Grid } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha';
