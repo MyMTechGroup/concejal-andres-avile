@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
           sx={{ my: 2 }}
         >
           Copyright © 2024. Made with{' '}
-          <span style={{ color: '#4888CD' }}>♥</span> by {'M&M Tech Group'}
+          <span style={{ color: '#4888CD' }}>♥</span> by <a href='https://altiora-software.vercel.app'> {'Altiora Software'} </a>
         </Typography>
       </Container>
     </Box>

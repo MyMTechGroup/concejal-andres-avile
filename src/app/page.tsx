@@ -7,6 +7,8 @@ import SocialMedia from "./componentes/redes/socialMedia";
 import ThankYou from "./componentes/agradecimiento/agradecimiento";
 import NewsPage from "./noticias-seccion/page";
 import { Box, Fab, Tooltip } from "@mui/material";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Footer from "./componentes/footer/footer";

@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Typography, Grid, Container } from "@mui/material";
-import ContactForm from "../componentes/form/contactForm";
+import ContactForm from "../componentes/contactForm/ContactForm";
 
 const Contacto: React.FC = () => {
   return (
     <Box
+      id="contacto"
       style={{
         position: "relative",
         color: "#fff",

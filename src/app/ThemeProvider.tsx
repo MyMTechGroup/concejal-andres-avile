@@ -5,7 +5,7 @@ import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/st
 import CssBaseline from '@mui/material/CssBaseline';
 import { ReactNode } from 'react';
 
-const theme = createTheme({
+export const theme = createTheme({
   palette: {
     primary: {
       main: '#1976d2',
