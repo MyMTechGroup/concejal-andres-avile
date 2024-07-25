@@ -29,7 +29,7 @@ export default function Home() {
       <NewsPage />
       <ThankYou />
       <Contacto />
-      <Box sx={{ position: "fixed", bottom: 16, right: 16 }}>
+      <Box sx={{ position: "fixed", bottom: 16, right: 16, zIndex: 1000 }}>
         <Tooltip title="Comunicate con nosotros" arrow>
           <Fab
             color="primary"
