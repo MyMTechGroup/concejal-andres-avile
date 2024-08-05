@@ -7,25 +7,30 @@ import SocialMedia from "./componentes/redes/socialMedia";
 import ThankYou from "./componentes/agradecimiento/agradecimiento";
 import NewsPage from "./noticias-seccion/page";
 import { Box, Fab, Tooltip } from "@mui/material";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Loading from "./componentes/loading/page";
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Footer from "./componentes/footer/footer";
 import { useEffect, useState } from "react";
 
-
 export default function Home() {
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // 2 segundos
+    const hasLoadedBefore = localStorage.getItem("hasLoadedBefore");
 
-    return () => clearTimeout(timer);
+    if (!hasLoadedBefore) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        localStorage.setItem("hasLoadedBefore", "true");
+      }, 2000); // 2 segundos
+
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(false);
+    }
   }, []);
 
   if (loading) {
