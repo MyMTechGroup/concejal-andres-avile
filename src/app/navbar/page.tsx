@@ -90,7 +90,7 @@ function NavBar() {
             <Box
               sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
             >
-              <Tabs value={getSelectedTab()} textColor="inherit">
+              <Tabs value={getSelectedTab()}>
                 <Link href="/" passHref>
                   <Tab
                     label="INICIO"
@@ -216,10 +216,9 @@ function NavBar() {
                     variant="outlined"
                     placeholder="Buscar..."
                     size="small"
-                    fullWidth
                     sx={{ marginBottom: 1 }}
                   />
-                  <Button variant="contained" color="primary" fullWidth>
+                  <Button variant="contained" color="primary">
                     Buscar
                   </Button>
                 </Box>

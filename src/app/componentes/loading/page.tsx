@@ -1,4 +1,4 @@
-// src/app/componentes/Loading/page.tsx
+"use client";
 import React, { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import LinearProgress from "@mui/material/LinearProgress";
