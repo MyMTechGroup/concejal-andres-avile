@@ -1,7 +1,6 @@
-// components/form/ContactForm.tsx
 "use client";
 import React, { useState } from 'react';
-import { Button, TextField, Grid } from '@mui/material';
+import { Button, TextField, Grid, Box } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const ContactForm: React.FC = () => {
@@ -42,54 +41,58 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Nombre"
-            name="name"
-            variant="outlined"
-            fullWidth
-            onChange={handleChange}
-            required
-          />
+    <Box sx={{ padding: "20px", backgroundColor: "#f4f4f4", borderRadius: "8px" }}>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Nombre"
+              name="name"
+              variant="outlined"
+              fullWidth
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Correo"
+              name="email"
+              type="email"
+              variant="outlined"
+              fullWidth
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Mensaje"
+              name="message"
+              variant="outlined"
+              multiline
+              rows={4}
+              fullWidth
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                onChange={handleRecaptchaChange}
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={12}>
+            <Button type="submit" variant="contained" color="primary" fullWidth>
+              Enviar
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Correo"
-            name="email"
-            type="email"
-            variant="outlined"
-            fullWidth
-            onChange={handleChange}
-            required
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Mensaje"
-            name="message"
-            variant="outlined"
-            multiline
-            rows={4}
-            fullWidth
-            onChange={handleChange}
-            required
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-            onChange={handleRecaptchaChange}
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <Button type="submit" variant="contained" color="primary">
-            Enviar
-          </Button>
-        </Grid>
-      </Grid>
-    </form>
+      </form>
+    </Box>
   );
 };
 

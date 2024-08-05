@@ -14,6 +14,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Clock from "../componentes/clock/Clock";
+import Weather from "../componentes/weather/weather"; 
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -53,28 +54,13 @@ function TopBar() {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Clock /> {/* Aquí se agrega el componente Clock */}
+          <Box sx={{ marginRight: 2 }}>
+            <Clock />
           </Box>
-
-          {/* Elementos de WhatsApp y Correo, ocultos en tablet */}
-          <Box
-            sx={{
-              display: {
-                xs: "none", // No mostrar en mobile
-                sm: "flex", // Mostrar en tablet y arriba
-              },
-              alignItems: "center",
-              mb: { xs: 1, sm: 0 },
-            }}
-          >
-            <IconButton color="inherit" edge="start">
-              <WhatsAppIcon />
-            </IconButton>
-            <Typography variant="body1" color="inherit" sx={{ ml: 1 }}>
-              (+54) 2964 477098
-            </Typography>
+          <Box>
+            <Weather />
           </Box>
-
+        </Box>
           <Box
             sx={{
               display: {

@@ -110,7 +110,7 @@ const NewsPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ paddingY: "25px", paddingX: "10px", background: "#1976d2" }}>
+    <Box id="noticias" sx={{ padding: "20px", background: "#1976d2" }}>
       <Container maxWidth="xl">
         <Typography
           variant="h2"

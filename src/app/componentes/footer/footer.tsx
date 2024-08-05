@@ -3,6 +3,7 @@
 'use client';
 import React from 'react';
 import { Container, Box, Typography } from '@mui/material';
+import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Footer: React.FC = () => {
           sx={{ my: 2 }}
         >
           Copyright © 2024. Made with{' '}
-          <span style={{ color: '#4888CD' }}>♥</span> by <a href='https://altiora-software.vercel.app'> {'Altiora Software'} </a>
+          <span style={{ color: '#4888CD' }}>♥</span> by <Link href='https://altiora-software.vercel.app'> {'Altiora Software'} </Link>
         </Typography>
       </Container>
     </Box>

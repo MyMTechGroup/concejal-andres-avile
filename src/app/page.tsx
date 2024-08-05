@@ -14,6 +14,8 @@ import Loading from "./componentes/loading/page";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Footer from "./componentes/footer/footer";
 import { useEffect, useState } from "react";
+import Presentacion from "./componentes/presentacion/presentacion";
+import ProyectosCarrusel from "./componentes/proyectos/proyectos";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -38,7 +40,6 @@ export default function Home() {
   }
 
   const handleWhatsAppClick = () => {
-    // Reemplaza '123456789' con el número de teléfono que deseas usar
     window.open("https://wa.me/123456789", "_blank");
   };
 
@@ -46,11 +47,30 @@ export default function Home() {
     <main>
       <TopBar />
       <NavBar />
-      <Header />
-      <SocialMedia />
-      <NewsPage />
-      <ThankYou />
-      <Contacto />
+      <div id="header">
+        <Header />
+      </div>
+      <div id="proyectos">
+        <ProyectosCarrusel />
+      </div>
+      <div id="presentacion">
+        <Presentacion />
+      </div>
+      <div id="news">
+        <NewsPage />
+      </div>
+      <div id="social-media">
+        <SocialMedia />
+      </div>
+      <div id="thank-you">
+        <ThankYou />
+      </div>
+      <div id="contacto">
+        <Contacto />
+      </div>
+      <div id="mandato">
+        {/* Aquí puedes agregar contenido sobre el mandato cumplido */}
+      </div>
       <Box sx={{ position: "fixed", bottom: 16, right: 16, zIndex: 1000 }}>
         <Tooltip title="Comunicate con nosotros" arrow>
           <Fab

@@ -1,41 +1,28 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-// Componente para mostrar la hora en la zona horaria de Buenos Aires
 const Clock: React.FC = () => {
-  const [date, setDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date>(new Date());
+  const [blink, setBlink] = useState<boolean>(true);
 
   useEffect(() => {
-    // Inicializa la fecha con la hora actual
-    setDate(new Date());
-
-    // Configura un intervalo para actualizar la hora cada segundo
     const timer = setInterval(() => {
       setDate(new Date());
+      setBlink(prev => !prev);
     }, 1000);
 
-    // Limpia el intervalo cuando el componente se desmonta
     return () => clearInterval(timer);
   }, []);
 
-  // Opciones para el formato de fecha y hora
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    hour12: true,
-    timeZone: 'America/Argentina/Buenos_Aires'
-  };
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
 
-  // Renderiza el componente solo si 'date' está disponible
   return (
-    <Typography variant="body1" color="inherit">
-      {date ? date.toLocaleDateString('es-AR', options) : 'Cargando...'}
+    <Typography variant="body1" color="inherit" style={{ display: 'flex', alignItems: 'center' }}>
+      <AccessTimeIcon style={{ marginRight: '8px' }} />
+      {hours}{blink ? ':' : ' '}{minutes}
     </Typography>
   );
 };
