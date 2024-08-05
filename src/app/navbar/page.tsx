@@ -15,17 +15,19 @@ import {
   Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search"; // Importar el ícono de búsqueda
+import SearchIcon from "@mui/icons-material/Search";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [searchOpen, setSearchOpen] = useState<boolean>(false); // Estado para controlar la visibilidad del campo de búsqueda
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
   const isMenuOpen = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const pathname = usePathname();
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -36,7 +38,24 @@ function NavBar() {
   };
 
   const handleSearchClick = () => {
-    setSearchOpen(!searchOpen); // Alternar la visibilidad del campo de búsqueda
+    setSearchOpen(!searchOpen);
+  };
+
+  const getSelectedTab = () => {
+    switch (pathname) {
+      case "/":
+        return 0;
+      case "/allNewsPage":
+        return 1;
+      case "/proyectos":
+        return 2;
+      case "/contacto":
+        return 3;
+      case "/mandato":
+        return 4;
+      default:
+        return false;
+    }
   };
 
   return (
@@ -48,7 +67,7 @@ function NavBar() {
           top: isMobile ? 0 : "64px",
           left: 0,
           right: 0,
-          zIndex: 1201, // Asegúra de que el NavBar esté encima del contenido
+          zIndex: 1201,
         }}
       >
         <Container maxWidth="xl">
@@ -60,19 +79,98 @@ function NavBar() {
               alignItems: "center",
             }}
           >
-            <Link href={"/"} >
-              <Typography variant="h6" style={{ color: "#fff" }}>
+            <Link href="/" passHref>
+              <Typography
+                variant="h6"
+                style={{ color: "#fff", cursor: "pointer" }}
+              >
                 ANDRES PATA AVILE
               </Typography>
             </Link>
             <Box
               sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
             >
-              <Tabs value={0} textColor="inherit">
-                <Tab label="INICIO" sx={{ color: "#fff" }} />
-                <Tab label="PROYECTOS LEGISLATURA" sx={{ color: "#fff" }} />
-                <Tab label="CONTACTO" sx={{ color: "#fff" }} />
-                <Tab label="MANDATO CUMPLIDO" sx={{ color: "#fff" }} />
+              <Tabs value={getSelectedTab()} textColor="inherit">
+                <Link href="/" passHref>
+                  <Tab
+                    label="INICIO"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                      "&.Mui-selected": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                    }}
+                  />
+                </Link>
+                <Link href="/allNewsPage" passHref>
+                  <Tab
+                    label="NOTICIAS"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                      "&.Mui-selected": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                    }}
+                  />
+                </Link>
+                <Link href="/" passHref>
+                  <Tab
+                    label="PROYECTOS LEGISLATURA"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                      "&.Mui-selected": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                    }}
+                  />
+                </Link>
+                <Link href="/" passHref>
+                  <Tab
+                    label="CONTACTO"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                      "&.Mui-selected": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                    }}
+                  />
+                </Link>
+                <Link href="/" passHref>
+                  <Tab
+                    label="MANDATO CUMPLIDO"
+                    sx={{
+                      color: "#fff",
+                      "&:hover": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                      "&.Mui-selected": {
+                        color: "#E3F2FD",
+                        borderBottom: "2px solid #42A5F5",
+                      },
+                    }}
+                  />
+                </Link>
               </Tabs>
               <Box
                 sx={{ marginLeft: 2, display: "flex", alignItems: "center" }}
@@ -126,16 +224,19 @@ function NavBar() {
                   </Button>
                 </Box>
                 <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
-                  Inicio
+                  <Link href="/">Inicio</Link>
                 </MenuItem>
                 <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
-                  Mis Proyectos
+                  <Link href="/noticias">Noticias</Link>
                 </MenuItem>
                 <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
-                  Contacto
+                  <Link href="/proyectos">Proyectos Legislatura</Link>
                 </MenuItem>
                 <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
-                  Mandato Cumplido
+                  <Link href="/contacto">Contacto</Link>
+                </MenuItem>
+                <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
+                  <Link href="/mandato">Mandato Cumplido</Link>
                 </MenuItem>
               </Menu>
             </Box>

@@ -8,6 +8,7 @@ import {
   CardMedia,
   Container,
   CardActionArea,
+  Button,
 } from "@mui/material";
 import Link from "@mui/material/Link";
 
@@ -44,16 +45,6 @@ const newsData = [
     imageUrl: "/noticias/noticia2.jpg",
     tags: ["Economía", "Política"],
   },
-  // {
-  //   id: 4,
-  //   title: "Nueva Ley de Educación en discusión",
-  //   author: "María López",
-  //   date: "1 mayo 2024",
-  //   content:
-  //     "El Congreso ha comenzado a debatir una nueva ley de educación que promete cambios significativos...",
-  //   imageUrl: "/noticias/noticia3.jpg",
-  //   tags: ["Educación", "Política"],
-  // },
   {
     id: 5,
     title: "Avances en el desarrollo tecnológico local",
@@ -87,6 +78,17 @@ const NewsPage: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    customPaging: (i: number) => (
+      <div
+        style={{
+          width: "10px",
+          height: "10px",
+          borderRadius: "50%",
+          backgroundColor: "#fff", // Cambia este color por el que desees
+          margin: "0 5px",
+        }}
+      ></div>
+    ),
     responsive: [
       {
         breakpoint: 1024,
@@ -108,7 +110,7 @@ const NewsPage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ padding: "20px", background: "#1976d2" }}>
+    <Box sx={{ paddingY: "25px", paddingX: "10px", background: "#1976d2" }}>
       <Container maxWidth="xl">
         <Typography
           variant="h2"
@@ -127,15 +129,22 @@ const NewsPage: React.FC = () => {
           {newsData.map((newsItem) => (
             <Box key={newsItem.id} sx={{ padding: "10px" }}>
               <Link href={`/noticias-seccion/${newsItem.id}`} underline="none">
-                <Card sx={{ height: "100%" }}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    width: { xs: "90%", md: "100%" },
+                    margin: { xs: "0 auto", md: "0" },
+                  }}
+                >
                   <CardActionArea>
                     <CardMedia
                       component="img"
                       height="200"
                       image={newsItem.imageUrl}
                       alt={newsItem.title}
+                      sx={{ objectFit: "cover" }}
                     />
-                    <CardContent sx={{ height: "150px" }}>
+                    <CardContent sx={{ height: "200px", overflow: "hidden" }}>
                       <Box
                         sx={{
                           display: "flex",
@@ -163,15 +172,19 @@ const NewsPage: React.FC = () => {
                         variant="h5"
                         component="div"
                         sx={{
-                          // backgroundColor: "#4E8CC9",
-                          // padding: "5px",
-                          // borderRadius: "4px",
                           color: "#000",
+                          fontSize: { xs: "18px", md: "24px" }, // Tamaño de fuente ajustado para mobile y desktop
                         }}
                       >
                         {newsItem.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{
+                          fontSize: { xs: "14px", md: "16px" }, // Tamaño de fuente ajustado para mobile y desktop
+                        }}
+                      >
                         By {newsItem.author} | {newsItem.date}
                       </Typography>
                     </CardContent>
@@ -181,6 +194,17 @@ const NewsPage: React.FC = () => {
             </Box>
           ))}
         </Slider>
+        <Box sx={{ textAlign: "center", marginTop: "20px" }}>
+          <Link href="/allNewsPage" underline="none">
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ marginTop: "20px" }}
+            >
+              Ver más noticias
+            </Button>
+          </Link>
+        </Box>
       </Container>
     </Box>
   );
