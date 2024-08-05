@@ -1,6 +1,14 @@
 import React from "react";
 import Slider from "react-slick";
-import { Grid, Box, Typography, Paper, Avatar, Container } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  CardActionArea,
+} from "@mui/material";
 import Link from "@mui/material/Link";
 
 // Datos de noticias actualizados con 6 noticias
@@ -36,16 +44,16 @@ const newsData = [
     imageUrl: "/noticias/noticia2.jpg",
     tags: ["Economía", "Política"],
   },
-  {
-    id: 4,
-    title: "Nueva Ley de Educación en discusión",
-    author: "María López",
-    date: "1 mayo 2024",
-    content:
-      "El Congreso ha comenzado a debatir una nueva ley de educación que promete cambios significativos...",
-    imageUrl: "/noticias/noticia3.jpg",
-    tags: ["Educación", "Política"],
-  },
+  // {
+  //   id: 4,
+  //   title: "Nueva Ley de Educación en discusión",
+  //   author: "María López",
+  //   date: "1 mayo 2024",
+  //   content:
+  //     "El Congreso ha comenzado a debatir una nueva ley de educación que promete cambios significativos...",
+  //   imageUrl: "/noticias/noticia3.jpg",
+  //   tags: ["Educación", "Política"],
+  // },
   {
     id: 5,
     title: "Avances en el desarrollo tecnológico local",
@@ -58,10 +66,12 @@ const newsData = [
   },
   {
     id: 6,
-    title: "Villa Constitución – Andrés Avilé: “Necesitamos mucha ayuda del Gobierno Provincial”",
+    title:
+      "Villa Constitución – Andrés Avilé: “Necesitamos mucha ayuda del Gobierno Provincial”",
     author: "Ana Pérez",
     date: "9 marzo 2024",
-    content:"El concejal del bloque Inspirar acompañó los dichos del intendente Jorge Berti y también pidió a los representantes de Unidos para Cambiar Santa Fe “sean parte de este proyecto de ciudad”...",
+    content:
+      "El concejal del bloque Inspirar acompañó los dichos del intendente Jorge Berti y también pidió a los representantes de Unidos para Cambiar Santa Fe “sean parte de este proyecto de ciudad”...",
     imageUrl: "/noticias/noticia5.jpg",
     tags: ["Economía", "Trabajo"],
   },
@@ -75,8 +85,8 @@ const NewsPage: React.FC = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true, // Habilitar autoplay
-    autoplaySpeed: 3000, // Intervalo entre transiciones en milisegundos
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 1024,
@@ -99,86 +109,74 @@ const NewsPage: React.FC = () => {
 
   return (
     <Box sx={{ padding: "20px", background: "#1976d2" }}>
-      <Container  maxWidth="xl">
+      <Container maxWidth="xl">
         <Typography
           variant="h2"
-          sx={{ textAlign: "center", marginBottom: "40px", color: "black" }}
+          sx={{ textAlign: "center", marginBottom: "20px", color: "#FFFFFF" }}
         >
-          Noticias
+          Últimas Noticias
+        </Typography>
+        <Typography
+          variant="h5"
+          sx={{ textAlign: "center", marginBottom: "40px", color: "#E0E0E0" }}
+        >
+          Mantente informado con las noticias más recientes de Villa
+          Constitución y sus alrededores
         </Typography>
         <Slider {...settings}>
           {newsData.map((newsItem) => (
             <Box key={newsItem.id} sx={{ padding: "10px" }}>
               <Link href={`/noticias-seccion/${newsItem.id}`} underline="none">
-                <Paper
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                    padding: "20px",
-                    backgroundColor: "#fff",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    <Avatar
-                      variant="square"
-                      src={newsItem.imageUrl}
+                <Card sx={{ height: "100%" }}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={newsItem.imageUrl}
                       alt={newsItem.title}
-                      sx={{
-                        width: "100%",
-                        height: "200px",
-                        objectFit: "cover",
-                      }}
                     />
-                  </Box>
-                  <Box sx={{ flex: 1 }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        gap: "10px",
-                        marginBottom: "10px",
-                      }}
-                    >
-                      {newsItem.tags.map((tag, index) => (
-                        <Typography
-                          key={index}
-                          variant="caption"
-                          sx={{
-                            backgroundColor: "#4E8CC9",
-                            padding: "5px",
-                            borderRadius: "4px",
-                            color: "#fff",
-                          }}
-                        >
-                          {tag}
-                        </Typography>
-                      ))}
-                    </Box>
-                    <Typography
-                      variant="h5"
-                      component="h2"
-                      sx={{ marginBottom: "10px", color: "black" }}
-                    >
-                      {newsItem.title}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{ marginBottom: "20px", color: "black" }}
-                    >
-                      By {newsItem.author} | {newsItem.date}
-                    </Typography>
-                    {/* <Typography variant="body1" sx={{ textAlign: "justify" }}>
-                  {newsItem.content}
-                </Typography> */}
-                  </Box>
-                </Paper>
+                    <CardContent sx={{ height: "150px" }}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: "10px",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        {newsItem.tags.map((tag, index) => (
+                          <Typography
+                            key={index}
+                            variant="caption"
+                            sx={{
+                              backgroundColor: "#4E8CC9",
+                              padding: "5px",
+                              borderRadius: "4px",
+                              color: "#fff",
+                            }}
+                          >
+                            {tag}
+                          </Typography>
+                        ))}
+                      </Box>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        sx={{
+                          // backgroundColor: "#4E8CC9",
+                          // padding: "5px",
+                          // borderRadius: "4px",
+                          color: "#000",
+                        }}
+                      >
+                        {newsItem.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        By {newsItem.author} | {newsItem.date}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
               </Link>
             </Box>
           ))}
@@ -189,4 +187,3 @@ const NewsPage: React.FC = () => {
 };
 
 export default NewsPage;
- 
