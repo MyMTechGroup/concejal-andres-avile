@@ -7,17 +7,16 @@ import {
   Container,
   Box,
   Button,
-  Link,
 } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Clock from "../componentes/clock/Clock";
-
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import Link from "next/link";
 
 const TikTok: React.FC<{ size?: number }> = ({ size = 24 }) => (
   <svg
@@ -95,45 +94,45 @@ function TopBar() {
 
           {/* Botones de redes sociales */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Link
-              href="https://x.com/home?lang=es"
-              target="_blank"
-              rel="noopener"
-            >
-              <Button startIcon={<XIcon />} sx={{ color: "#e0e0e0" }}></Button>
+            <Link href="https://x.com/home?lang=es" passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <Button
+                  startIcon={<XIcon />}
+                  sx={{ color: "#e0e0e0" }}
+                ></Button>
+              </a>
+            </Link>
+            <Link href="https://www.facebook.com/" passHref legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">
+                <Button
+                  startIcon={<FacebookIcon />}
+                  sx={{ color: "#e0e0e0" }}
+                ></Button>
+              </a>
             </Link>
             <Link
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener"
+              href="https://www.instagram.com/?hl=en"
+              passHref
+              legacyBehavior
             >
-              <Button
-                startIcon={<FacebookIcon />}
-                sx={{ color: "#e0e0e0" }}
-                href="URL_DE_Facebook"
-              ></Button>
-            </Link>
-            <Link
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener"
-            >
-              <Button
-                startIcon={<InstagramIcon />}
-                sx={{ color: "#e0e0e0" }}
-                href="https://www.instagram.com/?hl=en"
-              ></Button>
+              <a target="_blank" rel="noopener noreferrer">
+                <Button
+                  startIcon={<InstagramIcon />}
+                  sx={{ color: "#e0e0e0" }}
+                ></Button>
+              </a>
             </Link>
             <Link
               href="https://www.tiktok.com/?lang=es"
-              target="_blank"
-              rel="noopener"
+              passHref
+              legacyBehavior
             >
-              <Button
-                startIcon={<TikTok />}
-                sx={{ color: "#e0e0e0" }}
-                href="URL_DE_TikTok"
-              ></Button>
+              <a target="_blank" rel="noopener noreferrer">
+                <Button
+                  startIcon={<TikTok />}
+                  sx={{ color: "#e0e0e0" }}
+                ></Button>
+              </a>
             </Link>
           </Box>
         </Toolbar>
