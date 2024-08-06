@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState, useRef } from "react";
 import { Box, Typography, Grid, Container } from "@mui/material";
 import ContactForm from "../componentes/form/contactForm";

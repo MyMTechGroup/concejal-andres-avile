@@ -123,7 +123,7 @@ function NavBar() {
                     }}
                   />
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/#proyectos" passHref>
                   <Tab
                     label="PROYECTOS LEGISLATURA"
                     sx={{
@@ -139,7 +139,7 @@ function NavBar() {
                     }}
                   />
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/#contacto" passHref>
                   <Tab
                     label="CONTACTO"
                     sx={{
@@ -155,7 +155,7 @@ function NavBar() {
                     }}
                   />
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/#mandato" passHref>
                   <Tab
                     label="MANDATO CUMPLIDO"
                     sx={{
@@ -172,25 +172,6 @@ function NavBar() {
                   />
                 </Link>
               </Tabs>
-              <Box
-                sx={{ marginLeft: 2, display: "flex", alignItems: "center" }}
-              >
-                <IconButton color="inherit" onClick={handleSearchClick}>
-                  <SearchIcon />
-                </IconButton>
-                {searchOpen && (
-                  <TextField
-                    variant="outlined"
-                    placeholder="Buscar..."
-                    size="small"
-                    sx={{
-                      backgroundColor: "#fff",
-                      borderRadius: 1,
-                      marginLeft: 1,
-                    }}
-                  />
-                )}
-              </Box>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton edge="end" color="inherit" onClick={handleMenuOpen}>
@@ -211,17 +192,6 @@ function NavBar() {
                   },
                 }}
               >
-                <Box sx={{ marginBottom: 2 }}>
-                  <TextField
-                    variant="outlined"
-                    placeholder="Buscar..."
-                    size="small"
-                    sx={{ marginBottom: 1 }}
-                  />
-                  <Button variant="contained" color="primary">
-                    Buscar
-                  </Button>
-                </Box>
                 <MenuItem onClick={handleMenuClose} sx={{ color: "#000" }}>
                   <Link href="/">Inicio</Link>
                 </MenuItem>
