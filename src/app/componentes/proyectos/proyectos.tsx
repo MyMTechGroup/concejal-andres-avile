@@ -1,28 +1,42 @@
 import React from "react";
 import Slider from "react-slick";
-import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
-import "slick-carousel/slick/slick.css"; 
+import {
+  Box,
+  Typography,
+  Button,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const proyectos = [
   {
     titulo: "Los afectados por los UVA necesitan una solución definitiva",
     fecha: "22 junio, 2024",
     descripcion: "Proyectos presentados en la Legislatura",
-    imagen: "/path-to-image1.jpg",
+    imagen: "/proyectos/comunidad.jpg",
   },
   {
-    titulo: "Gran Premio de la Hermandad: Identidad Fueguina",
+    titulo: "Economía Sustentable para Productores Locales",
     fecha: "22 junio, 2024",
-    descripcion: "Proyectos presentados en la Legislatura",
-    imagen: "/path-to-image2.jpg",
+    descripcion:
+      "Proyectos presentados en Villa Constitución para apoyar a los productores locales.",
+    imagen: "/proyectos/economia-sustentable.jpg",
   },
   {
     titulo: "La investigación científica debe ser reconocida",
     fecha: "6 junio, 2024",
     descripcion: "Proyectos presentados en la Legislatura",
-    imagen: "/path-to-image3.jpg",
+    imagen: "/proyectos/salud.jpg",
+  },
+  {
+    titulo: "Mejoras en el Sistema de Salud Pública",
+    fecha: "6 junio, 2024",
+    descripcion: "Proyectos presentados en la Legislatura",
+    imagen: "/proyectos/salud-publica.jpg",
   },
 ];
 
@@ -45,9 +59,13 @@ const ProyectosCarrusel: React.FC = () => {
       id="proyectos"
       sx={{
         backgroundColor: "#222533",
-        padding: "20px",
+        padding: "50px 40px",
+        marginY: "0px",
         color: "#fff",
         textAlign: "center",
+        "& .slick-dots": {
+          marginBottom: "20px",
+        },
       }}
     >
       <Typography variant="h4" component="h2" gutterBottom>
@@ -55,13 +73,16 @@ const ProyectosCarrusel: React.FC = () => {
       </Typography>
       <Slider {...settings}>
         {proyectos.map((proyecto, index) => (
-          <Box key={index} sx={{ padding: "0 10px", boxSizing: "border-box" }}>
+          <Box
+            key={index}
+            sx={{ padding: "0 20px", boxSizing: "border-box", marginY: "30px" }}
+          >
             <Box
               sx={{
                 position: "relative",
                 borderRadius: "8px",
                 overflow: "hidden",
-                height: { xs: "400px", md: "300px" }, // Ajusta la altura en modo móvil y escritorio
+                height: { xs: "400px", md: "300px" },
               }}
             >
               <Image
@@ -69,7 +90,7 @@ const ProyectosCarrusel: React.FC = () => {
                 alt={proyecto.titulo}
                 width={500}
                 height={300}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }} // Ajusta la imagen para cubrir todo el contenedor
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
               <Box
                 sx={{
@@ -93,9 +114,13 @@ const ProyectosCarrusel: React.FC = () => {
           </Box>
         ))}
       </Slider>
-      <Button variant="contained" color="primary" sx={{ marginTop: "20px" }}>
-        Ver Todos
-      </Button>
+      <Box sx={{ marginTop: "20px" }}>
+        <Link href="/proyectos-seccion" passHref>
+          <Button variant="contained" color="primary">
+            Ver Todos
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 };
