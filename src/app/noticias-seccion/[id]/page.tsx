@@ -157,7 +157,7 @@ const newsData = [
   // Añadir más noticias si es necesario
 ];
 
-const NewsDetailPage: React.FC = () => {
+export default function NewsDetailPage () {
   const params = useParams();
   const id = params.id;
   const newsItem = newsData.find((item) => item.id === parseInt(id as string));
@@ -309,5 +309,3 @@ const NewsDetailPage: React.FC = () => {
     </Box>
   );
 };
-
-export default NewsDetailPage;

@@ -1,5 +1,7 @@
 import React from "react";
 import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
+import Image from "next/image";
+
 
 const Presentacion: React.FC = () => {
   const theme = useTheme();
@@ -20,32 +22,44 @@ const Presentacion: React.FC = () => {
         justifyContent: "center",
         alignItems: "center",
         color: "#fff",
-        padding: { xs: "5px 16px", md: '5px 92px' },
-        visibility: 'visible',
-        width: '100%',
-        margin: '5px 0',
-        borderTopWidth: '5px',
-        borderBottomWidth: '5px',
+        padding: { xs: "5px 16px", md: "5px 92px" },
+        visibility: "visible",
+        width: "100%",
+        margin: "5px 0",
+        borderTopWidth: "5px",
+        borderBottomWidth: "5px",
         zIndex: 98,
       }}
     >
       <Grid container spacing={2} alignItems="center">
         <Grid item xs={12} md={6}>
-          <Box textAlign="left" sx={{ paddingLeft: { xs: 0, md: '92px' }, paddingRight: { xs: 0, md: '92px' } }}>
+          <Box
+            textAlign="left"
+            sx={{
+              paddingLeft: { xs: 0, md: "92px" },
+              paddingRight: { xs: 0, md: "92px" },
+            }}
+          >
             <Typography variant="h3" component="p" paragraph>
               ¡HOLA VILLENSES!
             </Typography>
             <Typography variant="body1" component="p" paragraph>
-              Nos conocemos hace mucho, desde que inicié mi primera gestión en la ciudad.
+              Nos conocemos hace mucho, desde que inicié mi primera gestión en
+              la ciudad.
             </Typography>
             <Typography variant="body1" component="p" paragraph>
-              Saben del compromiso y responsabilidad con la que llevé adelante mi trabajo durante todos estos años.
+              Saben del compromiso y responsabilidad con la que llevé adelante
+              mi trabajo durante todos estos años.
             </Typography>
             <Typography variant="body1" component="p" paragraph>
-              Desde diciembre de 2023 me tocó asumir una nueva responsabilidad, la de representar a todos los villenses desde el consejo deliberante.
+              Desde diciembre de 2023 me tocó asumir una nueva responsabilidad,
+              la de representar a todos los villenses desde el consejo
+              deliberante.
             </Typography>
             <Typography variant="body1" component="p" paragraph>
-              Tengo el compromiso de trabajar, como lo hice siempre, con el objetivo de mejorar la calidad de vida de quienes habitamos Villa Constitucion.
+              Tengo el compromiso de trabajar, como lo hice siempre, con el
+              objetivo de mejorar la calidad de vida de quienes habitamos Villa
+              Constitucion.
             </Typography>
             <Typography variant="body1" component="p" paragraph>
               ¡Acompañame a construir la ciudad que soñamos!
@@ -54,8 +68,10 @@ const Presentacion: React.FC = () => {
         </Grid>
         <Grid item xs={12} md={6}>
           <Box display="flex" justifyContent="center">
-            <img
+            <Image
               src="/header-img/user-bg-transparent.png"
+              width={500}
+              height={300}
               alt="Imagen del Concejal"
               style={{
                 maxWidth: "50%",
