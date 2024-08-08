@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
               label="Nombre"
               name="name"
               variant="outlined"
-              fullWidth
+              
               onChange={handleChange}
               required
             />
@@ -60,7 +60,7 @@ const ContactForm: React.FC = () => {
               name="email"
               type="email"
               variant="outlined"
-              fullWidth
+              
               onChange={handleChange}
               required
             />
@@ -72,7 +72,7 @@ const ContactForm: React.FC = () => {
               variant="outlined"
               multiline
               rows={4}
-              fullWidth
+              
               onChange={handleChange}
               required
             />
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
             </Box>
           </Grid>
           <Grid item xs={12}>
-            <Button type="submit" variant="contained" color="primary" fullWidth>
+            <Button type="submit" variant="contained" color="primary">
               Enviar
             </Button>
           </Grid>

@@ -82,44 +82,44 @@ function TopBar() {
           {/* Botones de redes sociales */}
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Link href="https://x.com/home?lang=es" passHref legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
+              <p>
                 <Button
                   startIcon={<XIcon />}
                   sx={{ color: "#e0e0e0" }}
                 ></Button>
-              </a>
+              </p>
             </Link>
             <Link href="https://www.facebook.com/" passHref legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
+              <p>
                 <Button
                   startIcon={<FacebookIcon />}
                   sx={{ color: "#e0e0e0" }}
                 ></Button>
-              </a>
+              </p>
             </Link>
             <Link
               href="https://www.instagram.com/?hl=en"
               passHref
               legacyBehavior
             >
-              <a target="_blank" rel="noopener noreferrer">
+              <p>
                 <Button
                   startIcon={<InstagramIcon />}
                   sx={{ color: "#e0e0e0" }}
                 ></Button>
-              </a>
+              </p>
             </Link>
             <Link
               href="https://www.tiktok.com/?lang=es"
               passHref
               legacyBehavior
             >
-              <a target="_blank" rel="noopener noreferrer">
+              <p>
                 <Button
                   startIcon={<TikTok />}
                   sx={{ color: "#e0e0e0" }}
                 ></Button>
-              </a>
+              </p>
             </Link>
           </Box>
         </Toolbar>

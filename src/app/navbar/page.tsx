@@ -11,11 +11,8 @@ import {
   MenuItem,
   Container,
   Box,
-  TextField,
-  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
@@ -23,8 +20,6 @@ import { usePathname } from "next/navigation";
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [searchOpen, setSearchOpen] = useState<boolean>(false);
-  const isMenuOpen = Boolean(anchorEl);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const pathname = usePathname();
@@ -35,10 +30,6 @@ function NavBar() {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-  };
-
-  const handleSearchClick = () => {
-    setSearchOpen(!searchOpen);
   };
 
   const getSelectedTab = () => {
@@ -91,88 +82,89 @@ function NavBar() {
               sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
             >
               <Tabs value={getSelectedTab()}>
-                <Link href="/" passHref>
-                  <Tab
-                    label="INICIO"
-                    sx={{
-                      color: "#fff",
-                      "&:hover": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                      "&.Mui-selected": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                    }}
-                  />
-                </Link>
-                <Link href="/allNewsPage" passHref>
-                  <Tab
-                    label="NOTICIAS"
-                    sx={{
-                      color: "#fff",
-                      "&:hover": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                      "&.Mui-selected": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                    }}
-                  />
-                </Link>
-                <Link href="/#proyectos" passHref>
-                  <Tab
-                    label="PROYECTOS LEGISLATURA"
-                    sx={{
-                      color: "#fff",
-                      "&:hover": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                      "&.Mui-selected": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                    }}
-                  />
-                </Link>
-                <Link href="/#contacto" passHref>
-                  <Tab
-                    label="CONTACTO"
-                    sx={{
-                      color: "#fff",
-                      "&:hover": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                      "&.Mui-selected": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                    }}
-                  />
-                </Link>
-                <Link href="/#mandato" passHref>
-                  <Tab
-                    label="MANDATO CUMPLIDO"
-                    sx={{
-                      color: "#fff",
-                      "&:hover": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                      "&.Mui-selected": {
-                        color: "#E3F2FD",
-                        borderBottom: "2px solid #42A5F5",
-                      },
-                    }}
-                  />
-                </Link>
+                <Tab
+                  component={Link}
+                  href="/"
+                  label="INICIO"
+                  sx={{
+                    color: "#fff",
+                    "&:hover": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                    "&.Mui-selected": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                  }}
+                />
+                <Tab
+                  component={Link}
+                  href="/allNewsPage"
+                  label="NOTICIAS"
+                  sx={{
+                    color: "#fff",
+                    "&:hover": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                    "&.Mui-selected": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                  }}
+                />
+                <Tab
+                  component={Link}
+                  href="/#proyectos"
+                  label="PROYECTOS LEGISLATURA"
+                  sx={{
+                    color: "#fff",
+                    "&:hover": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                    "&.Mui-selected": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                  }}
+                />
+                <Tab
+                  component={Link}
+                  href="/#contacto"
+                  label="CONTACTO"
+                  sx={{
+                    color: "#fff",
+                    "&:hover": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                    "&.Mui-selected": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                  }}
+                />
+                <Tab
+                  component={Link}
+                  href="/#mandato"
+                  label="MANDATO CUMPLIDO"
+                  sx={{
+                    color: "#fff",
+                    "&:hover": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                    "&.Mui-selected": {
+                      color: "#E3F2FD",
+                      borderBottom: "2px solid #42A5F5",
+                    },
+                  }}
+                />
               </Tabs>
             </Box>
+
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton edge="end" color="inherit" onClick={handleMenuOpen}>
                 <MenuIcon />
@@ -181,14 +173,12 @@ function NavBar() {
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
-                slotProps={{
-                  paper: {
-                    style: {
-                      maxHeight: 400,
-                      width: "250px",
-                      padding: "16px",
-                      backgroundColor: "#fff",
-                    },
+                PaperProps={{
+                  style: {
+                    maxHeight: 400,
+                    width: "250px",
+                    padding: "16px",
+                    backgroundColor: "#fff",
                   },
                 }}
               >

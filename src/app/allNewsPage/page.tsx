@@ -231,6 +231,7 @@ const AllNewsPage: React.FC = () => {
               </Box>
             ))}
           </Grid>
+
           {!isMobile && (
             <Grid item xs={12} md={4}>
               <Box sx={{ position: "sticky", top: "80px" }}>
@@ -263,6 +264,9 @@ const AllNewsPage: React.FC = () => {
               </Box>
             </Grid>
           )}
+
+
+          
         </Grid>
       </Container>
     </Box>

@@ -85,7 +85,7 @@ export default function Home() {
               color: "white",
             }}
           >
-            <WhatsAppIcon />
+            {/* <WhatsAppIcon /> */}
           </Fab>
         </Tooltip>
       </Box>
