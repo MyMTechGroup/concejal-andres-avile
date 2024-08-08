@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Box, Typography, Button, useMediaQuery, useTheme } from "@mui/material";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const proyectos = [
   {
@@ -54,19 +55,21 @@ const ProyectosCarrusel: React.FC = () => {
       </Typography>
       <Slider {...settings}>
         {proyectos.map((proyecto, index) => (
-          <Box key={index} sx={{ padding: '0 10px', boxSizing: 'border-box' }}>
-            <Box 
-              sx={{ 
-                position: "relative", 
-                borderRadius: '8px', 
-                overflow: 'hidden', 
-                height: { xs: '400px', md: '300px' } // Ajusta la altura en modo móvil y escritorio
+          <Box key={index} sx={{ padding: "0 10px", boxSizing: "border-box" }}>
+            <Box
+              sx={{
+                position: "relative",
+                borderRadius: "8px",
+                overflow: "hidden",
+                height: { xs: "400px", md: "300px" }, // Ajusta la altura en modo móvil y escritorio
               }}
             >
-              <img
+              <Image
                 src={proyecto.imagen}
                 alt={proyecto.titulo}
-                style={{ width: "100%", height: "100%", objectFit: 'cover' }} // Ajusta la imagen para cubrir todo el contenedor
+                width={500}
+                height={300}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }} // Ajusta la imagen para cubrir todo el contenedor
               />
               <Box
                 sx={{

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Box, Typography, Grid, Container } from "@mui/material";
 import ContactForm from "../componentes/form/contactForm";
@@ -45,13 +45,15 @@ const Contacto: React.FC = () => {
       }
     );
 
-    if (contactoRef.current) {
-      observer.observe(contactoRef.current);
+    const currentRef = contactoRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (contactoRef.current) {
-        observer.unobserve(contactoRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -76,7 +78,9 @@ const Contacto: React.FC = () => {
             xs={12}
             md={6}
             sx={{
-              animation: inView ? `${slideInLeft} 1s ease-in-out forwards` : "none",
+              animation: inView
+                ? `${slideInLeft} 1s ease-in-out forwards`
+                : "none",
             }}
           >
             <Typography
@@ -87,10 +91,18 @@ const Contacto: React.FC = () => {
             >
               CONTACTAME
             </Typography>
-            <Typography color="white" variant="body1" component="p" sx={{ marginTop: "20px" }}>
-              Hoy tengo la responsabilidad de representar a los villenses y lo hago con mucho gusto y compromiso.
-              <br /> Quiero realizar mis aportes para resolver los problemas que tenemos y tratar de lograr una mejor calidad de vida para todos.
-              <br /> Estoy para escucharte y que tu inquietud se transforme en una iniciativa que nos ayude a mejorar nuestra ciudad.
+            <Typography
+              color="white"
+              variant="body1"
+              component="p"
+              sx={{ marginTop: "20px" }}
+            >
+              Hoy tengo la responsabilidad de representar a los villenses y lo
+              hago con mucho gusto y compromiso.
+              <br /> Quiero realizar mis aportes para resolver los problemas que
+              tenemos y tratar de lograr una mejor calidad de vida para todos.
+              <br /> Estoy para escucharte y que tu inquietud se transforme en
+              una iniciativa que nos ayude a mejorar nuestra ciudad.
             </Typography>
           </Grid>
           <Grid
@@ -98,7 +110,9 @@ const Contacto: React.FC = () => {
             xs={12}
             md={6}
             sx={{
-              animation: inView ? `${slideInRight} 1s ease-in-out forwards` : "none",
+              animation: inView
+                ? `${slideInRight} 1s ease-in-out forwards`
+                : "none",
             }}
           >
             <ContactForm />
