@@ -15,7 +15,7 @@ const ContactForm: React.FC = () => {
         width: "100%", 
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      {/* <Typography variant="h4" gutterBottom>
         CONTACTAME
       </Typography>
       <Typography variant="body1" paragraph>
@@ -24,7 +24,7 @@ const ContactForm: React.FC = () => {
         los problemas que tenemos y tratar de lograr una mejor calidad de vida
         para todos. Estoy para escucharte y que tu inquietud se transforme en
         una iniciativa que nos ayude a mejorar nuestra ciudad.
-      </Typography>
+      </Typography> */}
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextField
