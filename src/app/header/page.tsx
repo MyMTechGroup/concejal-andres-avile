@@ -66,19 +66,32 @@ function Header() {
               justifyContent: "center",
               alignItems: "flex-end",
               textAlign: "center",
+              position: "relative",
             }}
           >
-            <Image
-              src="/header-img/user-bg-transparent.png"
-              width={500}
-              height={800}
-              alt="concejal"
-              style={{
-                maxWidth: "100%",
+            <Box
+              sx={{
+                position: "relative",
+                width: "100%",
                 height: "auto",
-                // transform: { xs: "scale(0.8)", md: "scale(1)" }, // Ajuste de escala en pantallas móviles
+                maxWidth: "500px", // Ancho máximo de la imagen
+                maskImage:
+                  "linear-gradient(to bottom, black 70%, transparent 100%)", // Aplicando el degradado para el efecto de desaparición
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, black 70%, transparent 100%)", // Compatibilidad con navegadores basados en Webkit
               }}
-            />
+            >
+              <Image
+                src="/header-img/user-bg-transparent.png"
+                width={500}
+                height={800}
+                alt="concejal"
+                style={{
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
+              />
+            </Box>
           </Grid>
         </Grid>
       </Container>
